@@ -52,5 +52,6 @@ imageHeader getImageHeader(FILE *fp);
 Image getImage(FILE *fp,int offset,int width,int height);
 unsigned char greyScalePixel(RGB rgb);
 void imageToGrayScale(Image image);
+void flipImage(Image image);
 void createBlackAndWhiteImage(Image image,BMP_Header bmp_header,imageHeader image_header);
 #endif

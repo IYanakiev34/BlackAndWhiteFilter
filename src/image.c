@@ -61,6 +61,16 @@ void imageToGrayScale(Image image){
 
 }
 
+void flipImage(Image image){
+    for(int i=0;i<image.height;i++){
+        for(int j =0;j<image.width/2;j++){
+            RGB temp = image.rgb[i][j];
+            image.rgb[i][j] = image.rgb[i][image.width-j-1];
+            image.rgb[i][image.width-j-1] = temp;
+        }
+    }
+}
+
 void createBlackAndWhiteImage(Image image,BMP_Header bmp_header,imageHeader image_header){
     FILE *fpw = fopen("bw-pic.bmp","wb");
     if(fpw == NULL){
