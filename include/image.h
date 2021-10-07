@@ -54,4 +54,5 @@ unsigned char greyScalePixel(RGB rgb);
 void imageToGrayScale(Image image);
 void flipImage(Image image);
 void createBlackAndWhiteImage(Image image,BMP_Header bmp_header,imageHeader image_header);
+void createFlippedImage(Image image,BMP_Header bmp_header,imageHeader image_header);
 #endif

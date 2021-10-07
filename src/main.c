@@ -12,7 +12,9 @@ int main(int argc,char *argv[]){
     imageHeader imgHeader = getImageHeader(fp);
     Image img = getImage(fp,bmp_header.offset,imgHeader.width,imgHeader.height);
 
-    imageToGrayScale(img);
-    createBlackAndWhiteImage(img,bmp_header,imgHeader);
+
+    //createBlackAndWhiteImage(img,bmp_header,imgHeader);
+    createFlippedImage(img,bmp_header,imgHeader);
+    freeImage(img);
     return 0;
 }

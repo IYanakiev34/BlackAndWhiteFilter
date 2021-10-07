@@ -97,3 +97,24 @@ void freeImage(Image image){
     }
     free(image.rgb);
 }
+
+
+void createFlippedImage(Image image,BMP_Header bmp_header,imageHeader image_header){
+    FILE *fpw = fopen("flipped.bmp","wb");
+
+    if(fpw == NULL){
+        return ;
+    }
+
+    flipImage(image);
+
+    fwrite(bmp_header.name,2*sizeof(char),1,fpw);
+    fwrite(&bmp_header,3*sizeof(int),1,fpw);
+
+    fwrite(&image_header,sizeof(struct imageHeader),1,fpw);
+
+    for(int i=image.height-1; i>=0;i--){
+        fwrite(image.rgb[i],image.width,sizeof(struct RGB),fpw);
+    }
+    fclose(fpw);
+}
